@@ -3,13 +3,13 @@
 
 class MenuHandler {
     /**
+     * Construct a default scene handler
      * @constructor
      */
     constructor() {
         this._scenes = new Map();
         this._currentScene = null;
     }
-
 
     /**
      * Add a scene object to the map of menu scenes
@@ -27,6 +27,11 @@ class MenuHandler {
             this._currentScene = name;
     }
 
+
+    /**
+     * Remove a scene from the map of scenes
+     * @param name {string} remove the scene with the key name from the map
+     */
     removeScene(name) {
         if (this._scenes.get(name))
             this._scenes.delete(name);
@@ -48,15 +53,40 @@ class MenuHandler {
         }
     }
 
+    goToScene(name) {
+        if(this._scenes.has(name)) {
+            this._scenes.get(this._currentScene).transitionOut();
+            this._currentScene = name;
+            this._scenes.get(this._currentScene).transitionIn();
+        }
+        else {
+            throw new Error('Invalid Scene: ' + name);
+        }
+    }
+
     // Getters and Setters
+    /**
+     * Get the map of scenes for menus
+     * @returns {Map<string, Scene>} the map of current scenes
+     */
     get scenes() {
         return this._scenes;
     }
 
+
+    /**
+     * Get the current scene
+     * @returns {string} the current scene
+     */
     get currentScene() {
         return this._currentScene;
     }
 
+
+    /**
+     * Set the current scene value
+     * @param value {string} the name of the current scene to set.
+     */
     set currentScene(value) {
         this._currentScene = value;
     }
