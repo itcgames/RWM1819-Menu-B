@@ -20,6 +20,7 @@ function main() {
     menuHandler.addScene("Test", new Scene("Test"));
     menuHandler.addScene("Test 2", new Scene("Test 2"));
     document.addEventListener("keydown", keyDownHandler.bind(null, menuHandler));
+    menuHandler.render(ctx);
 }
 
 /**
