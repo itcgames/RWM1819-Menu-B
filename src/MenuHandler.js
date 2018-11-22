@@ -40,7 +40,7 @@ class MenuHandler {
 
     /**
      * Render the current scene
-     * @param ctx {context} the current context of object to render to
+     * @param ctx {CanvasRenderingContext2D} the current context of object to render to
      */
     render(ctx) {
         if (this._scenes.has(this._currentScene) && (ctx !== null && ctx !== undefined))
