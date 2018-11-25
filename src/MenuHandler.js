@@ -54,14 +54,30 @@ class MenuHandler {
     }
 
     goToScene(name) {
-        if(this._scenes.has(name)) {
-            this._scenes.get(this._currentScene).transitionOut();
-            this._currentScene = name;
-            this._scenes.get(this._currentScene).transitionIn();
+        if (this._currentScene !== name) {
+            if (this._scenes.has(name)) {
+                this._scenes.get(this._currentScene).transitionOut();
+                this._currentScene = name;
+                this._scenes.get(this._currentScene).transitionIn();
+            }
+            else {
+                throw new Error('Invalid Scene: ' + name);
+            }
         }
-        else {
-            throw new Error('Invalid Scene: ' + name);
-        }
+    }
+
+    /**
+     * Temp function for showing only the current scene //TODO: Deprecate and replace with proper function
+     */
+    showOnlyCurrentScene() {
+        this._scenes.forEach((value, key) => {
+            if (key !== this._currentScene) {
+                value.transitionOut();
+            } else {
+                value.transitionIn();
+            }
+
+        });
     }
 
     // Getters and Setters
