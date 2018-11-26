@@ -18,6 +18,7 @@ function main() {
     canvas.height = window.innerHeight;
     //canvas.style.position = "relative";
 
+    // canvas must be wrapped in a div for overlay effects
     let div =  document.createElement('div');
     div.style.position = "relative";
     //div.style.display = "inline-block";
