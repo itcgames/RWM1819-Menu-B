@@ -30,10 +30,38 @@ function main() {
     let ctx = canv.getContext("2d");
 
     let menuHandler = new MenuHandler();
+
+    // Create scenes
     let s = new Scene("Test", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100});
-    s.addMenu(new Menu("Test Menu", {'x': 0, 'y': 0, 'width': 50, 'height': 50}));
+    let s2 = new Scene("Test 2", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100});
+
+    // Set scene background colour as 6digit hex string
+    s.colour = "#7cff81";
+    s2.colour = "#FF0000";
+
+    // Set alpha as 2 digit hex string
+    s.alpha = "22";
+    s2.alpha = "22";
+
+    // Create MEnus to be appended to parent scenes
+    let m1 = new Menu("Test Menu", {'x': 0, 'y': 0, 'width': 50, 'height': 50});
+    let m2 = new Menu("Test Menu 2", {'x': 0, 'y': 0, 'width': 20, 'height': 70});
+
+    // Set colours for demonstration of alpha values
+    m1.colour = "#00FF00";
+    m2.colour = "#ff2dd3";
+
+    // Set alpha values for viewing of text on canvas below menus
+    m1.alpha = "22";
+    m2.alpha = "22";
+
+    // Append menus to the scenes
+    s.addMenu(m1);
+    s2.addMenu(m2);
+
+    // Add the scenes to the menu handler
     menuHandler.addScene("Test", s);
-    menuHandler.addScene("Test 2", new Scene("Test 2", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100}));
+    menuHandler.addScene("Test 2", s2);
     menuHandler.showOnlyCurrentScene();
     document.addEventListener("keydown", keyDownHandler.bind(null, menuHandler));
     menuHandler.render(ctx);

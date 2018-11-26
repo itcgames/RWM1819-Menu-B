@@ -12,12 +12,14 @@ describe('MenuHandlerTest', () => {
   });
 
   it('can add a new scene', () => {
-      menuHandler.addScene("Test", new Scene("Test"));
+      let div = document.createElement('div');
+      menuHandler.addScene("Test", new Scene("Test", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100}, "#FF00FF"));
       expect(menuHandler._scenes.size).to.equal(1);
   });
 
   it('can remove a scene', () => {
-      menuHandler.addScene("Test", new Scene("Test"));
+      let div = document.createElement('div');
+      menuHandler.addScene("Test", new Scene("Test", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100}, "#FF00FF"));
       expect(menuHandler._scenes.size).to.equal(1);
       menuHandler.removeScene("Test");
       expect(menuHandler._scenes.size).to.equal(0);

@@ -9,8 +9,8 @@
 class Menu extends Container {
     /**
      *
-     * @param title {string}
-     * @param bounds {Bounds}
+     * @param title {string} [title=""]
+     * @param bounds {Bounds} the bounds of the menu object
      */
     constructor(title, bounds) {
         super(`Menu-${title || ""}`, bounds.x, bounds.y, bounds.width, bounds.height, "relative", "#295cff", false);
@@ -45,10 +45,19 @@ class Menu extends Container {
         this._title = value;
     }
 
+
+    /**
+     * Hide all menu items
+     * //TODO Add button element hiding
+     */
     hideAll() {
         this.hide();
     }
 
+    /**
+     * Show all menu items
+     * //TODO Add button element showing
+     */
     showAll() {
         this.show();
     }

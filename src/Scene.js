@@ -10,11 +10,13 @@ class Scene extends Container {
     /**
      * Default constructor for a scene object
      * @param title {string} the title of the current menu scene
-     * @param div
+     * @param div {HTMLElement} - The parent div to attach the scene to if none are present then body is defaulted
      * @param bounds {Bounds} the bounds of the scene container
+     * @param _colour {string}
      */
-    constructor(title, div, bounds) {
-        super(`Scene-${title || ""}`, bounds.x || 0, bounds.y || 0, bounds.width || 100, bounds.height || 100, "absolute", "#FF00FF", false);
+    constructor(title, div, bounds, _colour) {
+        let col = _colour || "#33c2ff";
+        super(`Scene-${title || ""}`, bounds.x || 0, bounds.y || 0, bounds.width || 100, bounds.height || 100, "absolute", col, false);
         // this._container = document.createElement('div');
         // this._container.setAttribute("id", `Scene-${this._title}`);
         //
@@ -66,9 +68,9 @@ class Scene extends Container {
         this._active = false;
         this._stopped = false;
         this.show();
-        // this._menus.forEach((value) => {
-        //     value.showAll();
-        // });
+        this._menus.forEach((value) => {
+            value.showAll();
+        });
     }
 
     /**
@@ -79,9 +81,9 @@ class Scene extends Container {
         this._stopped = true;
         this._active = false;
         this.hide();
-        // this._menus.forEach((value) => {
-        //     value.hideAll();
-        // });
+        this._menus.forEach((value) => {
+            value.hideAll();
+        });
     }
 
 
