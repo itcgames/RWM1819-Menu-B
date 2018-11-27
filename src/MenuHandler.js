@@ -80,6 +80,15 @@ class MenuHandler {
         });
     }
 
+    /**
+     * Get the current scene object
+     * @returns {Scene}
+     */
+    getCurrentSceneObject() {
+        return this._scenes.get(this._currentScene);
+    }
+
+
     // Getters and Setters
     /**
      * Get the map of scenes for menus

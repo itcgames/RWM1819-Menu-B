@@ -9,17 +9,6 @@
  */
 
 class Container {
-    get units() {
-        return this._units;
-    }
-
-    set units(value) {
-        this._units = value;
-        this._containerDiv.style.left = this._bounds.x + this._units;
-        this._containerDiv.style.top = this._bounds.y + this._units;
-        this._containerDiv.style.width = this._bounds.width + this._units;
-        this._containerDiv.style.height = this._bounds.height + this._units;
-    }
     constructor(_name,_x, _y, _w, _h, _positionType, _colour, _pixels) {
         this._containerDiv = document.createElement('div');
         this._id = _name || "Container";
@@ -105,5 +94,17 @@ class Container {
     set alpha(value) {
         this._alpha = value || "FF";
         this._containerDiv.style.backgroundColor = `${this._colour}${this._alpha}`;
+    }
+
+    get units() {
+        return this._units;
+    }
+
+    set units(value) {
+        this._units = value;
+        this._containerDiv.style.left = this._bounds.x + this._units;
+        this._containerDiv.style.top = this._bounds.y + this._units;
+        this._containerDiv.style.width = this._bounds.width + this._units;
+        this._containerDiv.style.height = this._bounds.height + this._units;
     }
 }
