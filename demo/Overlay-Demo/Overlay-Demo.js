@@ -56,6 +56,9 @@ function main() {
     m1.alpha = "22";
     m2.alpha = "22";
 
+    // Create Buttons
+    let b1 = new Button("Test button", m1.containerDiv, menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
+    let b2 = new Button("Test button long Test button long", m2.containerDiv, menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
     // Append menus to the scenes
     s.addMenu(m1);
     s2.addMenu(m2);
