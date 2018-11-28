@@ -11,20 +11,15 @@ class Menu extends Container {
      *
      * @param title {string} [title=""]
      * @param bounds {Bounds} the bounds of the menu object
+     * @param _units {string} The unit type of the container
      */
-    constructor(title, bounds) {
-        super(`Menu-${title || ""}`, bounds.x, bounds.y, bounds.width, bounds.height, "relative", "#295cff", false);
+    constructor(title, bounds, _units) {
+        let units = _units || "%";
+        super(`Menu-${title || ""}`,
+            bounds.x, bounds.y, bounds.width, bounds.height,
+            "relative", "#295cff", units);
         this._title = title || "";
-        // this._bounds = bounds || {'x': 0, 'y':0, 'width': 50, 'height': 50};
-        // this._container = document.createElement("div");
-        // if (this._title)
-        //     this._container.setAttribute("id", `Menu-${this._title}`);
-        // this._container.style.position = "relative";
-        // this._container.style.left = this._bounds.x;
-        // this._container.style.top = this._bounds.y;
-        // this._container.style.width = this._bounds.width + "%";
-        // this._container.style.height = this._bounds.height + "%";
-        // this._container.style.backgroundColor = "#295cff"
+        this._containerDiv.style.display = "inline-block";
     }
 
     // Getters and Setter

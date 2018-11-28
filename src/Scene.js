@@ -13,22 +13,15 @@ class Scene extends Container {
      * @param div {HTMLElement} - The parent div to attach the scene to if none are present then body is defaulted
      * @param bounds {Bounds} the bounds of the scene container
      * @param _colour {string}
+     * @param _units {string}
      */
-    constructor(title, div, bounds, _colour) {
+    constructor(title, div, bounds, _colour, _units) {
         let col = _colour || "#33c2ff";
-        super(`Scene-${title || ""}`, bounds.x || 0, bounds.y || 0, bounds.width || 100, bounds.height || 100, "absolute", col, false);
-        // this._container = document.createElement('div');
-        // this._container.setAttribute("id", `Scene-${this._title}`);
-        //
-        // console.log(div);
-        // this._container.style.position = "absolute";
-        // //this._container.style.display = "inline-block";
-        // this._bounds = bounds || {'x': 0, 'y': 0, 'width': 100, 'height': 100};
-        // this._container.style.left = this._bounds.x;
-        // this._container.style.top = this._bounds.y;
-        // this._container.style.width = this._bounds.width + "%";
-        // this._container.style.height = this._bounds.height + "%";
-        // this._container.style.backgroundColor = "#FF00FF";
+        let units = _units || "%";
+        super(`Scene-${title || ""}`,
+            bounds.x || 0, bounds.y || 0,
+            bounds.width || 100, bounds.height || 100,
+            "absolute", col, units);
         if (div)
             div.appendChild(this._containerDiv);
         else

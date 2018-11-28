@@ -9,7 +9,18 @@
  */
 
 class Container {
-    constructor(_name,_x, _y, _w, _h, _positionType, _colour, _pixels) {
+    /**
+     * Default constructor for a container div
+     * @param _name The name/id of the container
+     * @param _x {number} The x coordinate of the container the left element of div style
+     * @param _y {number} The y coordinate of the container the top element of div style
+     * @param _w {number} The width value of the container the left element of div style
+     * @param _h {number} The height value of the container the left element of div style
+     * @param _positionType {string} Divs position type
+     * @param _colour {string} The divs background colour currently hex string
+     * @param _units {string} The units used (%, px, etc...) as a string
+     */
+    constructor(_name,_x, _y, _w, _h, _positionType, _colour, _units) {
         this._containerDiv = document.createElement('div');
         this._id = _name || "Container";
         this._containerDiv.setAttribute("id", this._id);
@@ -17,7 +28,7 @@ class Container {
                         "y": _y || 0,
                         "width": _w || 0,
                         "height": _h || 0};
-        this._units = _pixels ? "px" : "%";
+        this._units = _units || "%";
         this._containerDiv.style.left = this._bounds.x + this._units;
         this._containerDiv.style.top = this._bounds.y + this._units;
         this._containerDiv.style.width = this._bounds.width + this._units;
@@ -27,6 +38,7 @@ class Container {
         this._colour = `${_colour}${this._alpha}` || `#00FFAC${this._alpha}`;
         this._containerDiv.style.backgroundColor = this._colour;
         this._containerDiv.style.visibility = "visible";
+        this._containerDiv.style.overflow = "auto";
     }
 
     hide() {
@@ -48,7 +60,8 @@ class Container {
 
     set colour(value) {
         this._colour = value;
-        this._containerDiv.style.backgroundColor = `${this._colour}${this._alpha}`;
+        this._containerDiv.style.backgroundColor =
+            `${this._colour}${this._alpha}`;
     }
 
     /**
@@ -71,8 +84,8 @@ class Container {
     _updateDivBounds() {
         this._containerDiv.style.left = this._bounds.x + this._units;
         this._containerDiv.style.top = this._bounds.y + this._units;
-        this._containerDiv.style.width = this._bounds.width + this._units;
-        this._containerDiv.style.height = this._bounds.height + this._units;
+        this._containerDiv.style.minWidth = this._bounds.width + this._units;
+        this._containerDiv.style.minHeight = this._bounds.height + this._units;
     }
 
     /**
@@ -93,7 +106,8 @@ class Container {
      */
     set alpha(value) {
         this._alpha = value || "FF";
-        this._containerDiv.style.backgroundColor = `${this._colour}${this._alpha}`;
+        this._containerDiv.style.backgroundColor =
+            `${this._colour}${this._alpha}`;
     }
 
     get units() {
