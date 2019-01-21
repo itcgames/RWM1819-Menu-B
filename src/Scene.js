@@ -16,7 +16,7 @@ class Scene extends Container {
      * @param _units {string}
      */
     constructor(title, div, bounds, _colour, _units) {
-        let col = _colour || "#33c2ff";
+        let col = _colour;
         let units = _units || "%";
         super(`Scene-${title || ""}`,
             bounds.x || 0, bounds.y || 0,
@@ -89,5 +89,9 @@ class Scene extends Container {
             console.log(value);
             ctx.fillText(value.title, value.bounds.x, value.bounds.y + 30);
         });
+    }
+
+    get menus() {
+        return this._menus;
     }
 }

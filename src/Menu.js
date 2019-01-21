@@ -7,6 +7,9 @@
  */
 
 class Menu extends Container {
+    get buttons() {
+        return this._buttons;
+    }
     /**
      *
      * @param title {string} [title=""]
@@ -20,6 +23,14 @@ class Menu extends Container {
             "relative", "#295cff", units);
         this._title = title || "";
         this._containerDiv.style.display = "inline-block";
+        this._buttons = new Map();
+    }
+
+    addMenu(name, button) {
+        if (button) {
+            this.buttons.set(name, button);
+            this._containerDiv.appendChild(button._element);
+        }
     }
 
     // Getters and Setter
