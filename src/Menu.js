@@ -58,6 +58,9 @@ class Menu extends Container {
      */
     hideAll() {
         this.hide();
+        this.buttons.forEach((value, key) => {
+            value._element.style.visibility = "hidden";
+        })
     }
 
     /**
@@ -66,5 +69,8 @@ class Menu extends Container {
      */
     showAll() {
         this.show();
+        this.buttons.forEach((value, key) => {
+            value._element.style.visibility = "visible";
+        })
     }
 }

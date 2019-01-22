@@ -25,7 +25,6 @@ class Button {
         this._img.onload = function() {
             this._element.appendChild(this._img);
             this._element.style.padding = "0";
-            this._element.style.visibility = "visible";
             this._img.style.width = 100 + "%";
             this._img.style.height = 100 + "%";
         }.bind(this);
@@ -39,7 +38,6 @@ class Button {
         this._hoverImage.onload = function() {
             this._element.appendChild(this._hoverImage);
             this._element.style.padding = "0";
-            this._element.style.visibility = "visible";
             this._hoverImage.style.width = 100 + "%";
             this._hoverImage.style.height = 100 + "%";
         }.bind(this);

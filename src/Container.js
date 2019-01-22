@@ -48,7 +48,6 @@ class Container {
     hide() {
         if (this._containerDiv.style.visibility === 'visible') {
             this._containerDiv.style.visibility = 'hidden';
-            console.log(this._containerDiv);
         }
     }
 
