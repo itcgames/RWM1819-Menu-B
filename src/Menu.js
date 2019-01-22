@@ -26,7 +26,7 @@ class Menu extends Container {
         this._buttons = new Map();
     }
 
-    addMenu(name, button) {
+    addButton(name, button) {
         if (button) {
             this.buttons.set(name, button);
             this._containerDiv.appendChild(button._element);
