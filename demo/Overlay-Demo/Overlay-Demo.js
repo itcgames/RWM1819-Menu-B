@@ -45,6 +45,7 @@ function main() {
 
     // Create Buttons
     let b1 = new Button("Test button", menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
+    b1.makeImageButton("http://static.oschina.net/uploads/img/201304/23112449_qhmk.png");
     let b2 = new Button("Test button long Test button long", menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
 
     m1.addButton("Test Menu", b1);

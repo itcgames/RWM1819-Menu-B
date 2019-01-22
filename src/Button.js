@@ -15,13 +15,17 @@ class Button {
         this._element.style.backgroundColor = "#ffc543";
         this._element.style.overflow = "normal";
         this._element.style.display = "block";
-        //this._element.innerText = this._name;
+    }
+
+    makeImageButton(src) {
+        this._element.style.visibility = "hidden";
         this._img = new Image();
-        this._img.src = "http://static.oschina.net/uploads/img/201304/23112449_qhmk.png";
+        this._img.src = src;
         this._img.style.display = "block";
         this._img.onload = function() {
             this._element.appendChild(this._img);
             this._element.style.padding = "0";
+            this._element.style.visibility = "visible";
         }.bind(this);
     }
 }
