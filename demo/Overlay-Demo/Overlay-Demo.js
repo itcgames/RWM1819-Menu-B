@@ -31,9 +31,9 @@ function main() {
     let ctx = canv.getContext("2d");
 
     let menuHandler = new MenuHandler();
-    menuHandler._theme.setPrimary(0,255,0,255);
-    menuHandler._theme.setSecondary(255,0,0,255);
-    menuHandler._theme.setTertiary(0,0,128, 255);
+    menuHandler._theme.setPrimary(0,255,0,1);
+    menuHandler._theme.setSecondary(255,0,0,0.2);
+    menuHandler._theme.setTertiary(0,0,128, 1);
 
     // Create scenes
     let s = new Scene("Test", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100});
