@@ -95,9 +95,9 @@ class MenuHandler {
                 mv.colour = this._theme.secondary;
                 mv.buttons.forEach((bv, bk) => {
                     bv._element.style.backgroundColor = this._theme.tertiary;
-                }).bind(this);
-            }).bind(this);
-        }).bind(this);
+                });
+            });
+        });
     }
 
     // Getters and Setters
