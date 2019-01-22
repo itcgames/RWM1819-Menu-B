@@ -94,8 +94,7 @@ class MenuHandler {
             value.menus.forEach((mv, mk) => {
                 mv.colour = this._theme.secondary;
                 mv.buttons.forEach((bv, bk) => {
-                    debugger
-                    bv.colour = "rgb(0,0,128,0)";
+                    bv._element.style.backgroundColor = this._theme.tertiary;
                 }).bind(this);
             }).bind(this);
         }).bind(this);
