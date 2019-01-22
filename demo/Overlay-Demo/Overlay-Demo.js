@@ -47,8 +47,8 @@ function main() {
     let b1 = new Button("Test button", menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
     let b2 = new Button("Test button long Test button long", menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
 
-    m1.addMenu("Test Menu", b1);
-    m2.addMenu("Test Button long Test button long", b2);
+    m1.addButton("Test Menu", b1);
+    m2.addButton("Test Button long Test button long", b2);
 
     // Append menus to the scenes
     s.addMenu(m1);
