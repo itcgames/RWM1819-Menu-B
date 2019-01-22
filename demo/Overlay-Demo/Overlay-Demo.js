@@ -31,34 +31,25 @@ function main() {
     let ctx = canv.getContext("2d");
 
     let menuHandler = new MenuHandler();
+    menuHandler._theme.setPrimary(0,255,0,255);
+    menuHandler._theme.setSecondary(255,0,0,255);
+    menuHandler._theme.setTertiary(0,0,128, 255);
 
     // Create scenes
     let s = new Scene("Test", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100});
     let s2 = new Scene("Test 2", div, {'x': 0, 'y': 0, 'width': 100, 'height': 100});
 
-    // Set scene background colour as 6digit hex string
-    s.colour = "#7cff81";
-    s2.colour = "#FF0000";
-
-    // Set alpha as 2 digit hex string
-    s.alpha = "22";
-    s2.alpha = "22";
-
     // Create MEnus to be appended to parent scenes
     let m1 = new Menu("Test Menu", {'x': 0, 'y': 0, 'width': 50, 'height': 50});
     let m2 = new Menu("Test Menu 2", {'x': 0, 'y': 0, 'width': 20, 'height': 70});
 
-    // Set colours for demonstration of alpha values
-    m1.colour = "#00FF00";
-    m2.colour = "#ff2dd3";
-
-    // Set alpha values for viewing of text on canvas below menus
-    m1.alpha = "22";
-    m2.alpha = "22";
-
     // Create Buttons
-    let b1 = new Button("Test button", m1.containerDiv, menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
-    let b2 = new Button("Test button long Test button long", m2.containerDiv, menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
+    let b1 = new Button("Test button", menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
+    let b2 = new Button("Test button long Test button long", menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
+
+    m1.addMenu("Test Menu", b1);
+    m2.addMenu("Test Button long Test button long", b2);
+
     // Append menus to the scenes
     s.addMenu(m1);
     s2.addMenu(m2);
@@ -68,6 +59,7 @@ function main() {
     menuHandler.addScene("Test 2", s2);
     menuHandler.showOnlyCurrentScene();
     document.addEventListener("keydown", keyDownHandler.bind(null, menuHandler));
+    menuHandler.applyTheme();
     menuHandler.render(ctx);
 }
 

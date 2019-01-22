@@ -60,8 +60,7 @@ class Container {
 
     set colour(value) {
         this._colour = value;
-        this._containerDiv.style.backgroundColor =
-            `${this._colour}${this._alpha}`;
+        this._containerDiv.style.backgroundColor = this._colour;
     }
 
     /**
@@ -94,20 +93,6 @@ class Container {
      */
     get containerDiv() {
         return this._containerDiv;
-    }
-
-    get alpha() {
-        return this._alpha;
-    }
-
-    /**
-     *
-     * @param value {string} [value="FF"]
-     */
-    set alpha(value) {
-        this._alpha = value || "FF";
-        this._containerDiv.style.backgroundColor =
-            `${this._colour}${this._alpha}`;
     }
 
     get units() {

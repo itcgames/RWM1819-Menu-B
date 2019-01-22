@@ -9,6 +9,7 @@ class MenuHandler {
     constructor() {
         this._scenes = new Map();
         this._currentScene = null;
+        this._theme = new Theme();
     }
 
     /**
@@ -17,8 +18,9 @@ class MenuHandler {
      * @param scene {Scene} the scene object to map
      */
     addScene(name, scene) {
-        if (!this._scenes.has(name))
+        if (!this._scenes.has(name)) {
             this._scenes.set(name, scene);
+        }
         else
             throw new Error('A scene with the name ' + name + 'already exists.');
 
@@ -26,7 +28,6 @@ class MenuHandler {
         if (this._currentScene === null)
             this._currentScene = name;
     }
-
 
     /**
      * Remove a scene from the map of scenes
@@ -36,7 +37,6 @@ class MenuHandler {
         if (this._scenes.get(name))
             this._scenes.delete(name);
     }
-
 
     /**
      * Render the current scene
@@ -88,6 +88,17 @@ class MenuHandler {
         return this._scenes.get(this._currentScene);
     }
 
+    applyTheme() {
+        this.scenes.forEach((value, key) => {
+            value.colour = this._theme.primary;
+            value.menus.forEach((mv, mk) => {
+                mv.colour = this._theme.secondary;
+                mv.buttons.forEach((bv, bk) => {
+                    bv._element.style.backgroundColor = this._theme.tertiary;
+                }).bind(this);
+            }).bind(this);
+        }).bind(this);
+    }
 
     // Getters and Setters
     /**
