@@ -7,10 +7,10 @@ class Button {
         this._element = document.createElement('button');
         this._element.addEventListener("click", this._callback);
         this._units = units || "%";
-        this._element.style.left = (0 || 0)  + "px";
-        this._element.style.top = (0 || 0) + "px";
-        this._element.style.minWidth = (500 || 0)  + "px";
-        this._element.style.minHeight = (100 || 0)  + "px";
+        this._element.style.left = (bounds.x || 0)  + this._units;
+        this._element.style.top = (bounds.y || 0) + this._units;
+        this._element.style.minWidth = (bounds.width || 0)  + this._units;
+        this._element.style.minHeight = (bounds.height || 0)  + this._units;
         this._element.style.position = "absolute";
         this._element.style.backgroundColor = "#ffc543";
         this._element.style.overflow = "normal";
