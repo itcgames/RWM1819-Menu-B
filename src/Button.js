@@ -9,8 +9,8 @@ class Button {
         this._units = units || "%";
         this._element.style.left = (bounds.x || 0)  + this._units;
         this._element.style.top = (bounds.y || 0) + this._units;
-        this._element.style.minWidth = (bounds.width || 0)  + this._units;
-        this._element.style.minHeight = (bounds.height || 0)  + this._units;
+        this._element.style.maxWidth = (bounds.width || 0)  + this._units;
+        this._element.style.maxHeight = (bounds.height || 0)  + this._units;
         this._element.style.position = "absolute";
         this._element.style.backgroundColor = "#ffc543";
         this._element.style.overflow = "normal";
@@ -26,6 +26,8 @@ class Button {
             this._element.appendChild(this._img);
             this._element.style.padding = "0";
             this._element.style.visibility = "visible";
+            this._img.style.width = 100 + "%";
+            this._img.style.height = 100 + "%";
         }.bind(this);
     }
 
@@ -38,14 +40,20 @@ class Button {
             this._element.appendChild(this._hoverImage);
             this._element.style.padding = "0";
             this._element.style.visibility = "visible";
+            this._hoverImage.style.width = 100 + "%";
+            this._hoverImage.style.height = 100 + "%";
         }.bind(this);
         this._element.onmouseover = () => {
             this._img.style.display = "none";
             this._hoverImage.style.display = "block";
+            this._hoverImage.style.width = 100 + "%";
+            this._hoverImage.style.height = 100 + "%";
         };
         this._element.onmouseleave = () => {
             this._img.style.display = "block";
             this._hoverImage.style.display = "none";
+            this._hoverImage.style.width = 100 + "%";
+            this._hoverImage.style.height = 100 + "%";
         }
     }
 }

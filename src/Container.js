@@ -25,14 +25,18 @@ class Container {
         this._id = _name || "Container";
         this._containerDiv.setAttribute("id", this._id);
         this._bounds = {"x": _x || 0,
-                        "y": _y || 0,
-                        "width": _w || 0,
-                        "height": _h || 0};
+            "y": _y || 0,
+            "width": _w || 0,
+            "height": _h || 0};
         this._units = _units || "%";
         this._containerDiv.style.left = this._bounds.x + this._units;
         this._containerDiv.style.top = this._bounds.y + this._units;
         this._containerDiv.style.width = this._bounds.width + this._units;
         this._containerDiv.style.height = this._bounds.height + this._units;
+        this._containerDiv.style.minWidth = this._bounds.width;
+        this._containerDiv.style.minHeight = this._bounds.height;
+        this._containerDiv.style.maxWidth = this._bounds.width;
+        this._containerDiv.style.maxHeight = this._bounds.height;
         this._containerDiv.style.position = _positionType || "absolute";
         this._alpha = "FF";
         this._colour = `${_colour}${this._alpha}` || `#00FFAC${this._alpha}`;
