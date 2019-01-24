@@ -18,7 +18,10 @@ class Button {
     }
 
     makeImageButton(src) {
-        this._element.style.visibility = "hidden";
+        //this._element.style.visibility = "hidden";
+        if (this._element.contains(this._img)) {
+            this._element.removeChild(this._img);
+        }
         this._img = new Image();
         this._img.src = src;
         this._img.style.display = "block";
@@ -31,6 +34,9 @@ class Button {
     }
 
     addHoverImage(src) {
+        if (this._element.contains(this._hoverImage)) {
+            this._element.removeChild(this._hoverImage);
+        }
         this._hoverImage = new Image();
         this._hoverImage.style.display = "block";
         this._hoverImage.src = src;
