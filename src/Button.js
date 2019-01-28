@@ -9,6 +9,8 @@ class Button {
         this._units = units || "%";
         this._element.style.left = (bounds.x || 0)  + this._units;
         this._element.style.top = (bounds.y || 0) + this._units;
+        this._element.style.width = (bounds.width || 0)  + this._units;
+        this._element.style.height = (bounds.height || 0)  + this._units;
         this._element.style.maxWidth = (bounds.width || 0)  + this._units;
         this._element.style.maxHeight = (bounds.height || 0)  + this._units;
         this._element.style.position = "absolute";
@@ -30,6 +32,7 @@ class Button {
             this._element.style.padding = "0";
             this._img.style.width = 100 + "%";
             this._img.style.height = 100 + "%";
+            this._element.style.border = "none";
         }.bind(this);
     }
 
@@ -46,6 +49,7 @@ class Button {
             this._element.style.padding = "0";
             this._hoverImage.style.width = 100 + "%";
             this._hoverImage.style.height = 100 + "%";
+            this._element.style.border = "none";
         }.bind(this);
         this._element.onmouseover = () => {
             this._img.style.display = "none";
