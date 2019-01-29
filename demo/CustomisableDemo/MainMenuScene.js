@@ -25,8 +25,9 @@ class MainMenuScene extends Scene {
         {'x': 35, 'y': 4, 'width': 35, 'height': 10},
         "%"
     );
-
+    // Initialise the play_btn as an image button (no border, set width to be defined width)
     this.playBtn.makeImageButton("assets/ui/play_btn.png");
+    // Add a hover image to the play_btn as a hover effect
     this.playBtn.addHoverImage("assets/ui/play_btn_pressed.png");
     this.mainMenu.addButton("Play", this.playBtn);
 
@@ -41,7 +42,6 @@ class MainMenuScene extends Scene {
     this.leaderboardBtn.addHoverImage("assets/ui/leaderboard_btn_prssed.png");
     this.mainMenu.addButton("Leaderboard", this.leaderboardBtn);
     this.mainMenu.addButton("Controls", this.controlsBtn);
-    this.mainMenu.addButton("Redux", this.reduxBtn);
     this.addMenu(this.mainMenu);
   }
 }
