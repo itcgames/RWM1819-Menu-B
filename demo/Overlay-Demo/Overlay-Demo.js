@@ -16,6 +16,9 @@ function main() {
     console.log(document);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+
+
     //canvas.style.position = "relative";
 
     // canvas must be wrapped in a div for overlay effects
@@ -30,8 +33,12 @@ function main() {
     let canv = document.getElementById("testcanv");
     let ctx = canv.getContext("2d");
 
+    // Render text for demo purposes
+    ctx.font = "50px Arial";
+    ctx.fillText("Hello World", 300, 600);
+
     let menuHandler = new MenuHandler();
-    menuHandler._theme.setPrimary(0,255,0,1);
+    menuHandler._theme.setPrimary(0,255,0,0.5);
     menuHandler._theme.setSecondary(255,0,0,0.2);
     menuHandler._theme.setTertiary(0,0,128, 1);
 
@@ -45,8 +52,6 @@ function main() {
 
     // Create Buttons
     let b1 = new Button("Test button", menuHandler.goToScene.bind(menuHandler, "Test 2"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
-    b1.makeImageButton("http://static.oschina.net/uploads/img/201304/23112449_qhmk.png");
-    b1.addHoverImage("https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png");
     let b2 = new Button("Test button long Test button long", menuHandler.goToScene.bind(menuHandler, "Test"), {'x': 20, 'y': 20, 'width': 60, 'height': 10}, "%");
 
     m1.addButton("Test Menu", b1);
