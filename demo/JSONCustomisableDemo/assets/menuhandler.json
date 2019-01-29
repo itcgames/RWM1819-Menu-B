@@ -1,0 +1,72 @@
+{
+  "scenes": {
+    "Main": {
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "height": 100
+      },
+      "units": "%",
+      "menus": {
+        "MainMenu": {
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 50,
+            "height": 50
+          },
+          "buttons": {
+            "Example": {
+              "bounds": {
+                "x": 25,
+                "y": 40,
+                "width": 50,
+                "height": 20
+              },
+              "image": "assets/play_btn.png",
+              "hoverImage": "assets/play_btn_pressed.png",
+              "transitionTo": "Game",
+              "units": "%"
+            }
+          },
+          "units": "%"
+        }
+      }
+    },
+    "Game": {
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "height": 100
+      },
+      "units": "%",
+      "menus": {
+        "MainMenu": {
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 50,
+            "height": 50
+          },
+          "buttons": {
+            "Example": {
+              "bounds": {
+                "x": 25,
+                "y": 40,
+                "width": 50,
+                "height": 20
+              },
+              "image": "assets/back_btn.png",
+              "hoverImage": "assets/back_btn_pressed.png",
+              "transitionTo": "Main",
+              "units": "%"
+            }
+          },
+          "units": "%"
+        }
+      }
+    }
+  }
+}
