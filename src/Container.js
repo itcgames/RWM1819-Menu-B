@@ -109,4 +109,18 @@ class Container {
         this._containerDiv.style.width = this._bounds.width + this._units;
         this._containerDiv.style.height = this._bounds.height + this._units;
     }
+
+    lerp(start, end, interpolate) {
+        return (1 - interpolate) * start + (interpolate * end);
+    }
+
+    animateIn(interpoloationObj) {
+        if (interpoloationObj.interpolation < 1.0)
+            interpoloationObj.interpolation += interpoloationObj.transSpeed;
+        else
+            interpoloationObj.interpolation = 1.0;
+
+        let test = this._containerDiv.getBoundingClientRect();
+        debugger
+    }
 }
