@@ -72,18 +72,5 @@ describe('Container', () => {
         expect(container.bounds.width).to.not.equal(bounds.width);
         expect(container.bounds.height).to.not.equal(bounds.height);
     });
-
-    it('can alter colour and alpha', () => {
-        expect(container.colour).to.be.a("string");
-        container.colour = "FFFFFF";
-        expect(container.colour).to.equal("FFFFFF");
-
-        expect(container.alpha).to.be.a("string");
-        container.alpha = "00";
-        expect(container.alpha).to.equal("00");
-
-        let pattern = new RegExp("rgb");
-        expect(pattern.test(container._containerDiv.style.backgroundColor)).to.equal(true);
-    });
     // Add more assertions here
 });
