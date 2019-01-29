@@ -130,6 +130,11 @@ class MenuHandler {
         this._currentScene = value;
     }
 
+    /**
+     *
+     * @param {string} filepath - path to the json file to use
+     * @param {function} callback - Callback function to execute on load completion
+     */
     loadFromJSON(filepath, callback) {
         let request = new XMLHttpRequest();
         request.responseType = 'json';
