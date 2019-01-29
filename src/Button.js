@@ -1,6 +1,13 @@
 'use strict';
 
 class Button {
+    /**
+     *
+     * @param {string} name - name of the button
+     * @param {function} callback - callback function for on click
+     * @param {Object} bounds - bounds of the button
+     * @param {string} units - units for the button bounds
+     */
     constructor(name, callback, bounds, units) {
         this._name = name || "";
         this._callback = callback || function(event) {console.log(event);};
@@ -19,6 +26,10 @@ class Button {
         this._element.style.display = "block";
     }
 
+    /**
+     * Make the image to be a button
+     * @param {string} src - filepath for the image
+     */
     makeImageButton(src) {
         //this._element.style.visibility = "hidden";
         if (this._element.contains(this._img)) {
@@ -36,6 +47,10 @@ class Button {
         }.bind(this);
     }
 
+    /**
+     * Set a hover image for the button
+     * @param {string} src - filepath for the image
+     */
     addHoverImage(src) {
         if (this._element.contains(this._hoverImage)) {
             this._element.removeChild(this._hoverImage);
